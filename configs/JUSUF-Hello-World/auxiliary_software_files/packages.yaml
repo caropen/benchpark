@@ -1,0 +1,44 @@
+# Copyright 2023 Lawrence Livermore National Security, LLC and other
+# Benchpark Project Developers. See the top-level COPYRIGHT file for details.
+#
+# SPDX-License-Identifier: Apache-2.0
+
+packages:
+  tar:
+    externals:
+    - spec: tar@1.30
+      prefix: /usr
+      buildable: false
+  cmake:
+    externals:
+    - spec: cmake@3.26.3%gcc@12.3.0
+      prefix: /p/software/jusuf/stages/2024/software/CMake/3.26.3-GCCcore-12.3.0
+      buildable: false
+      extra_attributes:
+        ldflags: "-L/p/software/jusuf/stages/2024/software/GCCcore/12.3.0/lib64 -lstdc++"
+  gmake:
+    externals:
+    - spec: gmake@4.2.1
+      prefix: /usr
+  blas:
+    externals:
+    - spec: openblas@0.3.23%gcc@12.3.0
+      prefix: /p/software/jusuf/stages/2024/software/OpenBLAS/0.3.23-GCC-12.3.0
+      buildable: false
+  lapack:
+    externals:
+    - spec: openblas@0.3.23%gcc@12.3.0
+      prefix: /p/software/jusuf/stages/2024/software/OpenBLAS/0.3.23-GCC-12.3.0
+      buildable: false
+  mpi:
+    externals:
+    - spec: openmpi@4.1.5%gcc@12.3.0 + cuda cuda_arch={cuda_arch}
+      prefix: /p/software/jusuf/stages/2024/software/OpenMPI/4.1.5-GCC-12.3.0
+      buildable: false
+      extra_attributes:
+        ldflags: "-L/p/software/jusuf/stages/2024/software/OpenMPI/4.1.5-GCC-12.3.0/lib -lmpi"
+  cuda:
+    externals:
+    - spec: cuda@12.2.0
+      prefix: /p/software/jusuf/stages/2024/software/CUDA/12
+    buildable: false

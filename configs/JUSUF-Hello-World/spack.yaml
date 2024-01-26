@@ -1,0 +1,21 @@
+# Copyright 2023 Lawrence Livermore National Security, LLC and other
+# Benchpark Project Developers. See the top-level COPYRIGHT file for details.
+#
+# SPDX-License-Identifier: Apache-2.0
+
+spack:
+  packages:
+    default-compiler:
+      spack_spec: gcc@12.3.0
+    compiler-gcc:
+      spack_spec: gcc@12.3.0
+    compiler-intel:
+      spack_spec: intel
+    default-mpi:
+      spack_spec: openmpi@4.1.5%gcc@12.3.0 + cuda cuda_arch={cuda_arch}
+    blas:
+      spack_spec: openblas@0.3.23%gcc@12.3.0
+    lapack:
+      spack_spec: openblas@0.3.23%gcc@12.3.0
+    cuda:
+      spack_spec: cuda@12.2.0
